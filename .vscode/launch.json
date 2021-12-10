@@ -13,8 +13,7 @@
       ],
       "program": "${workspaceFolder}/node_modules/.bin/jest",
       "args": [
-        "src/7/7.test.ts",
-        "整数反转: 正常实现版"
+        "src/字符串转换整数atoi/index.test.ts",
       ],
       "outFiles": [
         "${workspaceFolder}/**/*.js"
