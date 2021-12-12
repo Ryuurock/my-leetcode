@@ -11,16 +11,6 @@ function isPalindrome(x: number): boolean {
   }
 
   const numStr = x.toString();
-  if (numStr.length % 2) {
-    return (
-      numStr.substring(0, Math.floor(numStr.length / 2)) ===
-      numStr.substring(Math.ceil(numStr.length / 2), numStr.length)
-    );
-  }
-
-  return (
-    numStr.substring(0, numStr.length / 2) ===
-    numStr.substring(numStr.length / 2, numStr.length)
-  );
+  return numStr === numStr.split("").reverse().join("");
 }
 // @lc code=end
