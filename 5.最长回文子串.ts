@@ -1,8 +1,11 @@
-/**
- * 中心扩散法
- * @param str
+/*
+ * @lc app=leetcode.cn id=5 lang=typescript
+ *
+ * [5] 最长回文子串
  */
-export const mine = (str: string) => {
+
+// @lc code=start
+function longestPalindrome(str: string): string {
   if (str.length < 2) {
     return str;
   }
@@ -36,4 +39,5 @@ export const mine = (str: string) => {
   }
 
   return str.substring(...maxStrRange);
-};
+}
+// @lc code=end

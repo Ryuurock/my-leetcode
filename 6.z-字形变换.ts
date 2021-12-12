@@ -1,12 +1,11 @@
-/**
- * 
- * P     I    N
-   A   L S  I G
-   Y A   H R
-   P     I
- * 正常直觉实现
+/*
+ * @lc app=leetcode.cn id=6 lang=typescript
+ *
+ * [6] Z 字形变换
  */
-export const convertZMine = (str: string, row: number) => {
+
+// @lc code=start
+function convert(str: string, row: number): string {
   if (row < 2) {
     return str;
   }
@@ -30,4 +29,5 @@ export const convertZMine = (str: string, row: number) => {
   }
 
   return strBox.flat().join("");
-};
+}
+// @lc code=end

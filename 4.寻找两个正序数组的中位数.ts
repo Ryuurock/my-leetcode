@@ -1,7 +1,11 @@
-/**
- * 一般解法
+/*
+ * @lc app=leetcode.cn id=4 lang=typescript
+ *
+ * [4] 寻找两个正序数组的中位数
  */
-export const mine = (arr1: number[], arr2: number[]) => {
+
+// @lc code=start
+function findMedianSortedArrays(arr1: number[], arr2: number[]): number {
   const mergedArray: number[] = [];
   while (arr1.length && arr2.length) {
     const arr1Item = arr1.shift()!;
@@ -24,4 +28,5 @@ export const mine = (arr1: number[], arr2: number[]) => {
       mergedArray[mergedArray.length / 2]) /
     2
   );
-};
+}
+// @lc code=end

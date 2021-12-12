@@ -1,4 +1,11 @@
-export const longestSubstringWithoutRepeatingCharacters = (str: string) => {
+/*
+ * @lc app=leetcode.cn id=3 lang=typescript
+ *
+ * [3] 无重复字符的最长子串
+ */
+
+// @lc code=start
+function lengthOfLongestSubstring(str: string): number {
   const set = new Set<string>();
   let rightIndex = 0;
   let ans = 0;
@@ -17,4 +24,5 @@ export const longestSubstringWithoutRepeatingCharacters = (str: string) => {
   }
 
   return ans;
-};
+}
+// @lc code=end

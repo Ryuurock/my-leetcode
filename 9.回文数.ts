@@ -1,12 +1,16 @@
-/**
- * 转字符串版
+/*
+ * @lc app=leetcode.cn id=9 lang=typescript
+ *
+ * [9] 回文数
  */
-export const huiwenshu = (num: number) => {
-  if (num < 0) {
+
+// @lc code=start
+function isPalindrome(x: number): boolean {
+  if (x < 0) {
     return false;
   }
 
-  const numStr = num.toString();
+  const numStr = x.toString();
   if (numStr.length % 2) {
     return (
       numStr.substring(0, Math.floor(numStr.length / 2)) ===
@@ -18,4 +22,5 @@ export const huiwenshu = (num: number) => {
     numStr.substring(0, numStr.length / 2) ===
     numStr.substring(numStr.length / 2, numStr.length)
   );
-};
+}
+// @lc code=end

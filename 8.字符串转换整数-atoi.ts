@@ -1,6 +1,13 @@
-export const myParseInt = (str: string) => {
+/*
+ * @lc app=leetcode.cn id=8 lang=typescript
+ *
+ * [8] 字符串转换整数 (atoi)
+ */
+
+// @lc code=start
+function myAtoi(s: string): number {
   const allowChar = /[\d|\s|-]/;
-  const strs = str.replace(/^\s*/, "").split("");
+  const strs = s.replace(/^\s*/, "").split("");
   let clearNum = "";
 
   for (let index = 0; index < strs.length; index++) {
@@ -13,4 +20,5 @@ export const myParseInt = (str: string) => {
   }
 
   return Math.min(Math.max(parseInt(clearNum), -(2 ** 31)), 2 ** 31);
-};
+}
+// @lc code=end
