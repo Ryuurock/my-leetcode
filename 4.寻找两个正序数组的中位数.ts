@@ -8,13 +8,7 @@
 function findMedianSortedArrays(arr1: number[], arr2: number[]): number {
   const mergedArray: number[] = [];
   while (arr1.length && arr2.length) {
-    const arr1Item = arr1.shift()!;
-    const arr2Item = arr2.shift()!;
-    if (arr1Item < arr2Item) {
-      mergedArray.push(arr1Item, arr2Item);
-    } else {
-      mergedArray.push(arr2Item, arr1Item);
-    }
+    mergedArray.push(arr1[0] < arr2[0] ? arr1.shift()! : arr2.shift()!);
   }
 
   mergedArray.push(...arr1, ...arr2);
@@ -30,3 +24,7 @@ function findMedianSortedArrays(arr1: number[], arr2: number[]): number {
   );
 }
 // @lc code=end
+
+test("findMedianSortedArrays", () => {
+  expect(findMedianSortedArrays([3], [-2, -1])).toBe(-1);
+});
