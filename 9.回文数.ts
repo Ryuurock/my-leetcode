@@ -10,7 +10,13 @@ function isPalindrome(x: number): boolean {
     return false;
   }
 
-  const numStr = x.toString();
-  return numStr === numStr.split("").reverse().join("");
+  let revertedNumber = 0;
+
+  while (x > revertedNumber) {
+    revertedNumber = revertedNumber * 10 + (x % 10);
+    x = Math.floor(x / 10);
+  }
+
+  return x === revertedNumber || x === Math.floor(revertedNumber / 10);
 }
 // @lc code=end
