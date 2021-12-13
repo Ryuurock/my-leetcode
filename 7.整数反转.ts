@@ -16,6 +16,14 @@ function reverse(x: number): number {
     startNum = parseInt((startNum / 10).toString(), 10);
   }
 
+  if (reverseNum > 2 ** 31 - 1 || reverseNum < (-2) ** 31) {
+    return 0;
+  }
+
   return reverseNum;
 }
 // @lc code=end
+
+test("reverse", () => {
+  expect(reverse(-2147483648)).toBe(0);
+});
