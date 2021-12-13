@@ -5,39 +5,34 @@
  */
 
 // @lc code=start
-function longestPalindrome(str: string): string {
-  if (str.length < 2) {
-    return str;
+function longestPalindrome(s: string): string {
+  if (s.length < 2) {
+    return s;
   }
-  let maxStrRange: [number, number] = [0, 1];
-
-  for (let index = 0; index < str.length; index++) {
-    let start = index - 1,
-      end = index + 1;
-
-    if (index - 1 < 0 || index + 1 > str.length - 1) {
-      continue;
+  const expandAroundCenter = (s: string, left: number, right: number) => {
+    while (left >= 0 && right < s.length && s[left] === s[right]) {
+      --left;
+      ++right;
     }
 
-    if (str[index] === str[end]) {
-      start = index;
-    }
+    return right - left - 1;
+  };
 
-    while (start >= 0 && end <= str.length - 1) {
-      if (
-        str[start] === str[end] &&
-        end + 1 - start > maxStrRange[1] - maxStrRange[0]
-      ) {
-        maxStrRange = [start, end + 1];
-
-        start -= 1;
-        end += 1;
-      } else {
-        break;
-      }
+  let start = 0,
+    end = 0;
+  for (let index = 0; index < s.length; index++) {
+    const len1 = expandAroundCenter(s, index, index);
+    const len2 = expandAroundCenter(s, index, index + 1);
+    const len = Math.max(len1, len2);
+    if (len > end - start) {
+      start = index - Math.floor((len - 1) / 2);
+      end = index + Math.floor(len / 2);
     }
   }
 
-  return str.substring(...maxStrRange);
+  return s.substring(start, end + 1);
 }
 // @lc code=end
+test("longestPalindrome", () => {
+  expect(longestPalindrome("abb")).toBe("bb");
+});
