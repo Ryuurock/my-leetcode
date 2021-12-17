@@ -2,5 +2,5 @@
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "node",
-  testRegex: ["\\d+\\..*?\\.ts"],
+  testRegex: ["[\\d|\\w]+\\..*?\\.ts"],
 };
