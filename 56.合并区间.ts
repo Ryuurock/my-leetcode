@@ -8,15 +8,15 @@
 function merge(intervals: number[][]): number[][] {
   const ans: number[][] = [];
   intervals.sort((a, b) => a[0] - b[0]);
-  for (let index = 0; index < intervals.length; index++) {
+  for (let left = 0; left < intervals.length; left++) {
     // eslint-disable-next-line prefer-const
-    let [leftStart, leftEnd] = intervals[index];
+    let [leftStart, leftEnd] = intervals[left];
 
-    for (let right = index + 1; right < intervals.length; right++) {
+    for (let right = left + 1; right < intervals.length; right++) {
       const [rightStart, rightEnd] = intervals[right];
       if (rightStart <= leftEnd) {
         leftEnd = Math.max(leftEnd, rightEnd);
-        index++;
+        left++;
       }
 
       if (rightStart > leftEnd) {
